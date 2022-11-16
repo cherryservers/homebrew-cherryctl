@@ -12,16 +12,16 @@ class Cherryctl < Formula
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Andrius521/cherryctl/releases/download/v0.9.0/cherryctl-darwin-amd64"
-      sha256 "85b1b097fa009f724f330cbbf5e4097191a9d167564b831f63dcb3b3ff6635c9"
+      url "https://github.com/cherryservers/cherryctl/releases/download/v0.1.3/cherryctl-darwin-amd64"
+      sha256 "4d42ee19633a6858a580266165e708c2b9f0fabbbd1e360018d901b9b2351357"
 
       def install
         bin.install "cherryctl-darwin-amd64" => "cherryctl"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/Andrius521/cherryctl/releases/download/v0.9.0/cherryctl-darwin-arm64"
-      sha256 "216b841e3c3e482287af8e72e655efcc746af4f08d27c2790cabc2f9137146f5"
+      url "https://github.com/cherryservers/cherryctl/releases/download/v0.1.3/cherryctl-darwin-arm64"
+      sha256 "8aa79cee17ed2efbc7159e74ca352e1125e53b87dd6153d3a1e4823262073923"
 
       def install
         bin.install "cherryctl-darwin-arm64" => "cherryctl"
@@ -31,16 +31,16 @@ class Cherryctl < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Andrius521/cherryctl/releases/download/v0.9.0/cherryctl-linux-arm64"
-      sha256 "3bf461ca3b07cb5368aabf0e08b6ccc4231dcb54a5fb9c109ae28f6e4c0f77c3"
+      url "https://github.com/cherryservers/cherryctl/releases/download/v0.1.3/cherryctl-linux-arm64"
+      sha256 "19f0d1c4c55c7f26dd6acfe5389010b38180b49136f1225939c2ee16058ebda9"
 
       def install
         bin.install "cherryctl-linux-arm64" => "cherryctl"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/Andrius521/cherryctl/releases/download/v0.9.0/cherryctl-linux-amd64"
-      sha256 "af97e88926363109918b382f7e168d2d8804647bf71e9ea46944dab4ca1740ef"
+      url "https://github.com/cherryservers/cherryctl/releases/download/v0.1.3/cherryctl-linux-amd64"
+      sha256 "4287656c172d1d3bcb3434fe457de91ac76415e0b44ab6f5940c935bc8a56310"
 
       def install
         bin.install "cherryctl-linux-amd64" => "cherryctl"
