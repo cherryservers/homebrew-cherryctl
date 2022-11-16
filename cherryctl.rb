@@ -5,7 +5,7 @@
 class Cherryctl < Formula
   desc "Official Cherry Servers CLI"
   homepage "https://www.cherryservers.com/"
-  version "0.9.0"
+  version "0.1.3"
   license "MIT"
 
   depends_on "go" => :build
