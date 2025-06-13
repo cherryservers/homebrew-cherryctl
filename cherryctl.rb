@@ -5,23 +5,23 @@
 class Cherryctl < Formula
   desc "Official Cherry Servers CLI"
   homepage "https://www.cherryservers.com/"
-  version "0.5.0"
+  version "0.5.1"
   license "MIT"
 
   depends_on "go" => :build
 
   on_macos do
-    on_intel do
-      url "https://github.com/cherryservers/cherryctl/releases/download/v0.5.0/cherryctl-darwin-amd64"
-      sha256 "d74127d0ceb0d3cb8acf60bfcb73bb74c30f99c1e2c893253c475effab827d98"
+    if Hardware::CPU.intel?
+      url "https://github.com/cherryservers/cherryctl/releases/download/v0.5.1/cherryctl-darwin-amd64"
+      sha256 "1aa103b7083bbe92e349ca12504db460bdb2271a817f43c7650043c04463e09a"
 
       def install
         bin.install "cherryctl-darwin-amd64" => "cherryctl"
       end
     end
-    on_arm do
-      url "https://github.com/cherryservers/cherryctl/releases/download/v0.5.0/cherryctl-darwin-arm64"
-      sha256 "183951dae8e17944cf912a7f59b94c00995e99ba991384794e62e407bf816f05"
+    if Hardware::CPU.arm?
+      url "https://github.com/cherryservers/cherryctl/releases/download/v0.5.1/cherryctl-darwin-arm64"
+      sha256 "94ae8aaeedc609763b4df768d455ba932e8941349a296ddbf9e08a8376b0a2bc"
 
       def install
         bin.install "cherryctl-darwin-arm64" => "cherryctl"
@@ -30,24 +30,18 @@ class Cherryctl < Formula
   end
 
   on_linux do
-    on_intel do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/cherryservers/cherryctl/releases/download/v0.5.0/cherryctl-linux-amd64"
-        sha256 "c2c71300aa934cfa2275528a4de31d2b58794344c513ea4945272cce2bd5c2a5"
-
-        def install
-          bin.install "cherryctl-linux-amd64" => "cherryctl"
-        end
+    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
+      url "https://github.com/cherryservers/cherryctl/releases/download/v0.5.1/cherryctl-linux-amd64"
+      sha256 "14fa3468b75daddf3ef58d98bf66d4f829c824280525d8d49a27d4679fadb010"
+      def install
+        bin.install "cherryctl-linux-amd64" => "cherryctl"
       end
     end
-    on_arm do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/cherryservers/cherryctl/releases/download/v0.5.0/cherryctl-linux-arm64"
-        sha256 "803803105da36fe453c9450a02dcd0d4e35fa6dc6750a92694e5aae175aab54f"
-
-        def install
-          bin.install "cherryctl-linux-arm64" => "cherryctl"
-        end
+    if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
+      url "https://github.com/cherryservers/cherryctl/releases/download/v0.5.1/cherryctl-linux-arm64"
+      sha256 "9a9cd9739e62a7dd975dbeb89235530f0316b8eb20334fb0ab93ff0e3c5bcdb6"
+      def install
+        bin.install "cherryctl-linux-arm64" => "cherryctl"
       end
     end
   end
